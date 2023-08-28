@@ -1,0 +1,22 @@
+name: Check Commit Message
+on:
+  push:
+    branches:
+      - main # Change this to your default branch name
+
+jobs:
+  check-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check Commit Message
+        run: |
+          commit_message=$(git log -1 --pretty=%B)
+          if [[ ! $commit_message =~ ^\[JIRA-[0-9]+\] ]]; then
+            echo "Error: Commit message should start with [JIRA-TICKET-NUMBER]"
+            exit 1
+          fi
+
