@@ -17,6 +17,7 @@ jobs:
             hostname
             pwd
             date
+            ls
         
       - name: Validate Commit Message
         run: |
