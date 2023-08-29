@@ -1,4 +1,4 @@
-name: Check Commit Message
+name: Check Commit Message and More
 
 on:
   push:
@@ -12,13 +12,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: checking hostname
+      - name: Checking hostname
         run: |
-            hostname
-            pwd
-            date
-            ls
-        
+          hostname
+          pwd
+          date
+          ls
       - name: Validate Commit Message
         run: |
           commit_message=$(git log -1 --pretty=%B)
@@ -27,3 +26,27 @@ jobs:
             exit 1
           fi
 
+  another_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Another Job
+        run: |
+          pwd
+          echo "Running another job"
+          # Add more steps as needed for this job
+
+  hostname check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Yet Another Job
+        run: |
+          echo "Running yet another job"
+          hostname
+          
+          # Add more steps as needed for this job
