@@ -38,7 +38,7 @@ jobs:
           echo "Running another job"
           # Add more steps as needed for this job
 
-  hostname check:
+  hostname_check:
     runs-on: ubuntu-latest
 
     steps:
