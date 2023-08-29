@@ -48,5 +48,6 @@ jobs:
         run: |
           echo "Running yet another job"
           hostname
+          pwd
           
           # Add more steps as needed for this job
