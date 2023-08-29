@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: checking hostname
+        run: hostname
       - name: Validate Commit Message
         run: |
           commit_message=$(git log -1 --pretty=%B)
